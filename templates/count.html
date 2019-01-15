@@ -1,0 +1,30 @@
+
+
+<a href="{% url 'home'%}">Go to home</a> 
+
+<h1>There are {{ count }} words in your Text </h1>
+
+<h1>Fulltext:</h1>
+{% if count == 0 %}
+{{ 'Text is empty' }}
+{% endif %}
+
+{% if count != 0 %}
+{{ fulltext }}
+{% endif %}
+
+
+<h1>Wordcount:</h1>
+
+{% if count == 0 %}
+{{  '0 words,empty text' }}
+{% endif %}
+
+{% if count != 0 %}
+{% for word,counttotal in worddict %}
+{{ word }} 
+{{'-'}}
+{{ counttotal }}
+<br />
+{% endfor %}
+{% endif %}
